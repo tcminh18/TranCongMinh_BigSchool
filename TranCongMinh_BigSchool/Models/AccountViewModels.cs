@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace TranCongMinh_BigSchool.Models
 {
     public class ExternalLoginConfirmationViewModel
+        //xong trang 7
     {
         [Required]
         [Display(Name = "Email")]
