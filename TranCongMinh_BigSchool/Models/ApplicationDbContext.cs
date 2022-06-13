@@ -11,7 +11,8 @@ namespace TranCongMinh_BigSchool.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Course> Course { get; set; }
-        public DbSet<Category> Category 
+        public DbSet<Category> Categories { get; set; }
+        //public object Categories { get; internal set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
