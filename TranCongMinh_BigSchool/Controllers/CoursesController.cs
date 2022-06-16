@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TranCongMinh_BigSchool.Models;
 using TranCongMinh_BigSchool.ViewModels;
-//lam xong trang 20
+//lam xong trang 22 dang bij loi
 
 namespace TranCongMinh_BigSchool.Controllers
 {
@@ -21,6 +22,11 @@ namespace TranCongMinh_BigSchool.Controllers
       [HttpPost]
       public ActionResult Create(CourseViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                viewModel.Categories = _dbContext.Categories.ToList();
+                return View("Create", viewModel);
+            }
             var course = new Course
             {
                 LecturerId = User.Identity.GetUserId(),
