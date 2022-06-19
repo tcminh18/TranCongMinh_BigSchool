@@ -7,21 +7,26 @@ using System.Web;
 using TranCongMinh_BigSchool.Models;
 
 namespace TranCongMinh_BigSchool.ViewModels
+    //xong trang 25
 {
-    public class CourseViewModel
+    public class CourseViewModel 
     {
         [Required]
         public string Place { get; set; }
 
         [Required]
+        [FutureDate] 
         public string Date { get; set; }
 
         [Required]
+        [ValidTime]
         public string Time { get; set; }
 
         [Required]
         public byte Category { get; set; }
+
         public IEnumerable <Category> Categories { get; set; }
+
         public DateTime GetDateTime()
         {
             return DateTime.Parse(string.Format("{0} {1}", Date, Time));
